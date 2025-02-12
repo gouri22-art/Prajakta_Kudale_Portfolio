@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
-import GitHubSection from "./components/GitHubCalendar";
+import GitHubSection from "./components/GitHubCalender";
 import Contact from "./components/Contact";
 import GitHubCalendar from "react-github-calendar";
 
