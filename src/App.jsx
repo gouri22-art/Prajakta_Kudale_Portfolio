@@ -7,6 +7,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import GitHubSection from "./components/GitHubCalendar";
 import Contact from "./components/Contact";
+import GitHubCalendar from "react-github-calendar";
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
       <About />
       <Skills />
       <Projects />
-      <GitHubSection />
+      <GitHubCalendar />
       <Contact />
     </ChakraProvider>
   );
