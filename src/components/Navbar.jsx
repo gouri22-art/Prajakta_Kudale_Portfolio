@@ -1,10 +1,23 @@
-import React from "react";
-import { HStack, Link, Button, useColorMode, Box, Text } from "@chakra-ui/react";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import React, { useEffect, useState } from "react";
+import { HStack, Link, Button, Box, Text } from "@chakra-ui/react";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.classList.remove("dark-mode");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
+
   return (
     <Box position="fixed" width="100%" bg="white" zIndex={1000} boxShadow="md">
       <HStack p={4} justifyContent="space-between" maxW="1200px" mx="auto">
@@ -16,9 +29,11 @@ const Navbar = () => {
             </motion.div>
           ))}
           <motion.div whileHover={{ scale: 1.1 }}>
-            <Link href="/resume.pdf" download>Resume</Link>
+            <Link href="/PrajaktaKudale-FrontendDeveloper(React)-MGdH" download>Resume</Link>
           </motion.div>
-          <Button onClick={toggleColorMode}>{colorMode === "light" ? <MoonIcon /> : <SunIcon />}</Button>
+          <Button onClick={() => setDarkMode(!darkMode)}>
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </Button>
         </HStack>
       </HStack>
     </Box>

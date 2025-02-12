@@ -11,15 +11,16 @@ import GitHubCalendar from "react-github-calendar";
 
 const App = () => {
   return (
-    <ChakraProvider>
+      <>
       <Navbar />
       <Home />
       <About />
       <Skills />
       <Projects />
-      <GitHubCalendar />
+      <GitHubSection />
       <Contact />
-    </ChakraProvider>
+      </>
+   
   );
 };
 
